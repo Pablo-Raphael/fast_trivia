@@ -1,0 +1,128 @@
+{
+  "questionario": {
+    "id": 3,
+    "titulo": "História Mundial",
+    "questoes": [
+      {
+        "id": 1,
+        "titulo": "Revolução Industrial",
+        "pergunta": "Em que século a Revolução Industrial teve início?",
+        "gabarito": 2,
+        "alternativas": [
+          {
+            "id": 1,
+            "titulo": "Século XVIII"
+          },
+          {
+            "id": 2,
+            "titulo": "Século XIX"
+          },
+          {
+            "id": 3,
+            "titulo": "Século XVI"
+          },
+          {
+            "id": 4,
+            "titulo": "Século XVII"
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "titulo": "Revolução Francesa",
+        "pergunta": "Qual foi o lema da Revolução Francesa?",
+        "gabarito": 4,
+        "alternativas": [
+          {
+            "id": 1,
+            "titulo": "Igualdade, Fraternidade, Progresso"
+          },
+          {
+            "id": 2,
+            "titulo": "Liberté, Égalité, Amour"
+          },
+          {
+            "id": 3,
+            "titulo": "Paz, Igualdade, Solidariedade"
+          },
+          {
+            "id": 4,
+            "titulo": "Liberté, Égalité, Fraternité"
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "titulo": "Idade Média",
+        "pergunta": "Qual período histórico sucedeu a Idade Média?",
+        "gabarito": 1,
+        "alternativas": [
+          {
+            "id": 1,
+            "titulo": "Renascimento"
+          },
+          {
+            "id": 2,
+            "titulo": "Idade Moderna"
+          },
+          {
+            "id": 3,
+            "titulo": "Antiguidade Clássica"
+          },
+          {
+            "id": 4,
+            "titulo": "Era Industrial"
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "titulo": "Revolução Russa",
+        "pergunta": "Em que ano ocorreu a Revolução Russa?",
+        "gabarito": 3,
+        "alternativas": [
+          {
+            "id": 1,
+            "titulo": "1917"
+          },
+          {
+            "id": 2,
+            "titulo": "1920"
+          },
+          {
+            "id": 3,
+            "titulo": "1917"
+          },
+          {
+            "id": 4,
+            "titulo": "1930"
+          }
+        ]
+      },
+      {
+        "id": 5,
+        "titulo": "Segunda Guerra Mundial",
+        "pergunta": "Qual país foi o primeiro a ser invadido na Segunda Guerra Mundial?",
+        "gabarito": 2,
+        "alternativas": [
+          {
+            "id": 1,
+            "titulo": "França"
+          },
+          {
+            "id": 2,
+            "titulo": "Polônia"
+          },
+          {
+            "id": 3,
+            "titulo": "Rússia"
+          },
+          {
+            "id": 4,
+            "titulo": "Reino Unido"
+          }
+        ]
+      }
+    ]
+  }
+}

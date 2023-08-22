@@ -1,0 +1,200 @@
+{
+  "questionario": {
+    "id": 5,
+    "titulo": "Literatura Clássica",
+    "questoes": [
+      {
+        "id": 1,
+        "titulo": "Dom Quixote",
+        "pergunta": "Quem é o autor da obra 'Dom Quixote'?",
+        "gabarito": 3,
+        "alternativas": [
+          {
+            "id": 1,
+            "titulo": "Machado de Assis"
+          },
+          {
+            "id": 2,
+            "titulo": "Jorge Luis Borges"
+          },
+          {
+            "id": 3,
+            "titulo": "Miguel de Cervantes"
+          },
+          {
+            "id": 4,
+            "titulo": "Gabriel García Márquez"
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "titulo": "Romeu e Julieta",
+        "pergunta": "Qual é a tragédia escrita por William Shakespeare que narra o amor proibido de dois jovens?",
+        "gabarito": 1,
+        "alternativas": [
+          {
+            "id": 1,
+            "titulo": "Romeu e Julieta"
+          },
+          {
+            "id": 2,
+            "titulo": "Hamlet"
+          },
+          {
+            "id": 3,
+            "titulo": "Dom Casmurro"
+          },
+          {
+            "id": 4,
+            "titulo": "Cem Anos de Solidão"
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "titulo": "Odisseia",
+        "pergunta": "Qual épico grego conta a história da viagem de Ulisses para retornar a sua terra após a Guerra de Troia?",
+        "gabarito": 4,
+        "alternativas": [
+          {
+            "id": 1,
+            "titulo": "Eneida"
+          },
+          {
+            "id": 2,
+            "titulo": "Ilíada"
+          },
+          {
+            "id": 3,
+            "titulo": "Divina Comédia"
+          },
+          {
+            "id": 4,
+            "titulo": "Odisseia"
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "titulo": "1984",
+        "pergunta": "Qual livro distópico escrito por George Orwell descreve um governo totalitário que controla os pensamentos dos cidadãos?",
+        "gabarito": 2,
+        "alternativas": [
+          {
+            "id": 1,
+            "titulo": "Admirável Mundo Novo"
+          },
+          {
+            "id": 2,
+            "titulo": "1984"
+          },
+          {
+            "id": 3,
+            "titulo": "Fahrenheit 451"
+          },
+          {
+            "id": 4,
+            "titulo": "Laranja Mecânica"
+          }
+        ]
+      },
+      {
+        "id": 5,
+        "titulo": "A Metamorfose",
+        "pergunta": "Qual é o título da obra em que o personagem principal acorda transformado em um inseto?",
+        "gabarito": 1,
+        "alternativas": [
+          {
+            "id": 1,
+            "titulo": "A Metamorfose"
+          },
+          {
+            "id": 2,
+            "titulo": "O Estrangeiro"
+          },
+          {
+            "id": 3,
+            "titulo": "O Processo"
+          },
+          {
+            "id": 4,
+            "titulo": "Cem Anos de Solidão"
+          }
+        ]
+      },
+      {
+        "id": 6,
+        "titulo": "Os Miseráveis",
+        "pergunta": "Quem é o autor do romance 'Os Miseráveis'?",
+        "gabarito": 4,
+        "alternativas": [
+          {
+            "id": 1,
+            "titulo": "Gustave Flaubert"
+          },
+          {
+            "id": 2,
+            "titulo": "Honoré de Balzac"
+          },
+          {
+            "id": 3,
+            "titulo": "Émile Zola"
+          },
+          {
+            "id": 4,
+            "titulo": "Victor Hugo"
+          }
+        ]
+      },
+      {
+        "id": 7,
+        "titulo": "Orgulho e Preconceito",
+        "pergunta": "Qual é o romance de Jane Austen que aborda os relacionamentos entre as classes sociais na Inglaterra do século XIX?",
+        "gabarito": 3,
+        "alternativas": [
+          {
+            "id": 1,
+            "titulo": "Razão e Sensibilidade"
+          },
+          {
+            "id": 2,
+            "titulo": "Emma"
+          },
+          {
+            "id": 3,
+            "titulo": "Orgulho e Preconceito"
+          },
+          {
+            "id": 4,
+            "titulo": "Persuasão"
+          }
+        ]
+      },
+      {
+        "id": 8,
+        "titulo": "Crime e Castigo",
+        "pergunta": "Qual é o título da obra em que o personagem Raskólnikov comete um assassinato e enfrenta um conflito psicológico?",
+        "gabarito": 1,
+        "alternativas": [
+          {
+            "id": 1,
+            "titulo": "Crime e Castigo"
+          },
+          {
+            "id": 2,
+            "titulo": "Os Irmãos Karamazov"
+          },
+          {
+            "id": 3,
+            "titulo": "Anna Karenina"
+          },
+          {
+            "id": 4,
+            "titulo": "Guerra e Paz"
+          }
+        ]
+      }
+    ]
+  }
+}

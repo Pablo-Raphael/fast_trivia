@@ -1,0 +1,128 @@
+{
+  "questionario": {
+    "id": 6,
+    "titulo": "Ciências Naturais",
+    "questoes": [
+      {
+        "id": 1,
+        "titulo": "Sistema Solar",
+        "pergunta": "Qual é o planeta mais próximo do Sol?",
+        "gabarito": 2,
+        "alternativas": [
+          {
+            "id": 1,
+            "titulo": "Marte"
+          },
+          {
+            "id": 2,
+            "titulo": "Mercúrio"
+          },
+          {
+            "id": 3,
+            "titulo": "Vênus"
+          },
+          {
+            "id": 4,
+            "titulo": "Terra"
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "titulo": "DNA",
+        "pergunta": "O que as siglas 'DNA' representam?",
+        "gabarito": 3,
+        "alternativas": [
+          {
+            "id": 1,
+            "titulo": "Doença Neurodegenerativa Avançada"
+          },
+          {
+            "id": 2,
+            "titulo": "Diagnóstico de Novas Anormalidades"
+          },
+          {
+            "id": 3,
+            "titulo": "Ácido Desoxirribonucleico"
+          },
+          {
+            "id": 4,
+            "titulo": "Distúrbio Nervoso Autossômico"
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "titulo": "Fotossíntese",
+        "pergunta": "Qual é o processo pelo qual as plantas convertem luz solar em energia?",
+        "gabarito": 1,
+        "alternativas": [
+          {
+            "id": 1,
+            "titulo": "Fotossíntese"
+          },
+          {
+            "id": 2,
+            "titulo": "Respiração Celular"
+          },
+          {
+            "id": 3,
+            "titulo": "Transpiração"
+          },
+          {
+            "id": 4,
+            "titulo": "Fermentação"
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "titulo": "Reações Químicas",
+        "pergunta": "Na equação química '2H₂ + O₂ -> 2H₂O', o que representa o 'H₂O'?",
+        "gabarito": 4,
+        "alternativas": [
+          {
+            "id": 1,
+            "titulo": "Dióxido de Carbono"
+          },
+          {
+            "id": 2,
+            "titulo": "Gás Nitrogênio"
+          },
+          {
+            "id": 3,
+            "titulo": "Ácido Sulfúrico"
+          },
+          {
+            "id": 4,
+            "titulo": "Água"
+          }
+        ]
+      },
+      {
+        "id": 5,
+        "titulo": "Evolução",
+        "pergunta": "Qual cientista propôs a teoria da evolução por seleção natural?",
+        "gabarito": 3,
+        "alternativas": [
+          {
+            "id": 1,
+            "titulo": "Isaac Newton"
+          },
+          {
+            "id": 2,
+            "titulo": "Gregor Mendel"
+          },
+          {
+            "id": 3,
+            "titulo": "Charles Darwin"
+          },
+          {
+            "id": 4,
+            "titulo": "Albert Einstein"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,128 @@
+{
+  "questionario": {
+    "id": 4,
+    "titulo": "Ciência e Tecnologia",
+    "questoes": [
+      {
+        "id": 1,
+        "titulo": "Modelo Atômico",
+        "pergunta": "Qual cientista propôs o modelo atômico com um núcleo central?",
+        "gabarito": 3,
+        "alternativas": [
+          {
+            "id": 1,
+            "titulo": "Isaac Newton"
+          },
+          {
+            "id": 2,
+            "titulo": "Albert Einstein"
+          },
+          {
+            "id": 3,
+            "titulo": "Ernest Rutherford"
+          },
+          {
+            "id": 4,
+            "titulo": "Niels Bohr"
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "titulo": "Descoberta da Penicilina",
+        "pergunta": "Quem foi o responsável pela descoberta da penicilina?",
+        "gabarito": 1,
+        "alternativas": [
+          {
+            "id": 1,
+            "titulo": "Alexander Fleming"
+          },
+          {
+            "id": 2,
+            "titulo": "Louis Pasteur"
+          },
+          {
+            "id": 3,
+            "titulo": "Marie Curie"
+          },
+          {
+            "id": 4,
+            "titulo": "Gregor Mendel"
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "titulo": "Teoria da Relatividade",
+        "pergunta": "Qual é a teoria proposta por Albert Einstein que revolucionou a física?",
+        "gabarito": 4,
+        "alternativas": [
+          {
+            "id": 1,
+            "titulo": "Leis de Kepler"
+          },
+          {
+            "id": 2,
+            "titulo": "Lei da Gravidade"
+          },
+          {
+            "id": 3,
+            "titulo": "Lei de Coulomb"
+          },
+          {
+            "id": 4,
+            "titulo": "Teoria da Relatividade"
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "titulo": "Clonagem da Ovelha Dolly",
+        "pergunta": "Qual o nome da primeira ovelha clonada a partir de uma célula adulta?",
+        "gabarito": 2,
+        "alternativas": [
+          {
+            "id": 1,
+            "titulo": "Bella"
+          },
+          {
+            "id": 2,
+            "titulo": "Dolly"
+          },
+          {
+            "id": 3,
+            "titulo": "Luna"
+          },
+          {
+            "id": 4,
+            "titulo": "Molly"
+          }
+        ]
+      },
+      {
+        "id": 5,
+        "titulo": "Exploração Espacial",
+        "pergunta": "Qual foi o primeiro ser humano a viajar para o espaço?",
+        "gabarito": 1,
+        "alternativas": [
+          {
+            "id": 1,
+            "titulo": "Yuri Gagarin"
+          },
+          {
+            "id": 2,
+            "titulo": "Neil Armstrong"
+          },
+          {
+            "id": 3,
+            "titulo": "Buzz Aldrin"
+          },
+          {
+            "id": 4,
+            "titulo": "John Glenn"
+          }
+        ]
+      }
+    ]
+  }
+}

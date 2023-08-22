@@ -1,0 +1,128 @@
+{
+  "questionario": {
+    "id": 2,
+    "titulo": "Você conhece o Dev. Pablo?",
+    "questoes": [
+      {
+        "id": 1,
+        "titulo": "Experiência em Flutter",
+        "pergunta": "Qual é a experiência de Pablo com o framework Flutter?",
+        "gabarito": 3,
+        "alternativas": [
+          {
+            "id": 1,
+            "titulo": "Pablo nunca teve contato com o framework Flutter."
+          },
+          {
+            "id": 2,
+            "titulo": "Pablo só experimentou Flutter em um projeto pequeno."
+          },
+          {
+            "id": 3,
+            "titulo": "Pablo possui ampla experiência e habilidades avançadas em desenvolvimento Flutter."
+          },
+          {
+            "id": 4,
+            "titulo": "Pablo já ouviu falar sobre Flutter, mas nunca trabalhou com ele."
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "titulo": "Arquitetura Limpa (Clean Architecture)",
+        "pergunta": "Pablo tem conhecimento sobre Arquitetura Limpa (Clean Architecture)?",
+        "gabarito": 1,
+        "alternativas": [
+          {
+            "id": 1,
+            "titulo": "Sim, Pablo possui sólido conhecimento em Arquitetura Limpa e entende como separar as camadas de um aplicativo de forma organizada e escalável."
+          },
+          {
+            "id": 2,
+            "titulo": "Não, Pablo nunca ouviu falar sobre Arquitetura Limpa."
+          },
+          {
+            "id": 3,
+            "titulo": "Pablo acha que Arquitetura Limpa se refere a manter o código bem comentado."
+          },
+          {
+            "id": 4,
+            "titulo": "Pablo acredita que Arquitetura Limpa é apenas um conceito teórico sem aplicação prática."
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "titulo": "Habilidades com Firebase",
+        "pergunta": "Quais são as habilidades de Pablo relacionadas ao Firebase?",
+        "gabarito": 2,
+        "alternativas": [
+          {
+            "id": 1,
+            "titulo": "Pablo domina todas as funcionalidades do Firebase, mas nunca as aplicou em projetos reais."
+          },
+          {
+            "id": 2,
+            "titulo": "Pablo possui experiência prática com integração de Firebase em projetos Flutter, incluindo autenticação, banco de dados em tempo real e notificações."
+          },
+          {
+            "id": 3,
+            "titulo": "Pablo acredita que Firebase é uma alternativa obsoleta para soluções de backend."
+          },
+          {
+            "id": 4,
+            "titulo": "Pablo só usou Firebase em projetos web, nunca em aplicativos mobile."
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "titulo": "Habilidades com Gerenciamento de Estado",
+        "pergunta": "Como Pablo lida com o gerenciamento de estado em Flutter?",
+        "gabarito": 4,
+        "alternativas": [
+          {
+            "id": 1,
+            "titulo": "Pablo acredita que gerenciamento de estado é irrelevante em aplicativos Flutter."
+          },
+          {
+            "id": 2,
+            "titulo": "Pablo usa apenas setState() para gerenciar estado em seus aplicativos."
+          },
+          {
+            "id": 3,
+            "titulo": "Pablo tentou usar várias bibliotecas de gerenciamento de estado, mas não compreendeu como aplicá-las corretamente."
+          },
+          {
+            "id": 4,
+            "titulo": "Pablo possui profundo conhecimento de diversas soluções de gerenciamento de estado, incluindo Provider, GetX e MobX, e sabe escolher a melhor abordagem para cada caso."
+          }
+        ]
+      },
+      {
+        "id": 5,
+        "titulo": "Versionamento de Código",
+        "pergunta": "Como Pablo lida com versionamento de código?",
+        "gabarito": 1,
+        "alternativas": [
+          {
+            "id": 1,
+            "titulo": "Pablo é proficiento em Git, usa branches, pull requests e entende a importância do versionamento de código em um ambiente colaborativo."
+          },
+          {
+            "id": 2,
+            "titulo": "Pablo acha que versionamento de código é um conceito ultrapassado."
+          },
+          {
+            "id": 3,
+            "titulo": "Pablo só usa Git para fazer backup dos arquivos."
+          },
+          {
+            "id": 4,
+            "titulo": "Pablo nunca teve a necessidade de usar versionamento de código."
+          }
+        ]
+      }
+    ]
+  }
+}
