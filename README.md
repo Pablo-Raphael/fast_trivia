@@ -24,9 +24,9 @@ O projeto consiste em um MVP (Produto Mínimo Viável) de um aplicativo de quest
 - Com mais alguns dias seria possível a aplicação de testes robustos, aplicação de psicologia ao design. melhor documentação, alternância entre temas, icones, animações e muito mais. Porém, ainda assim vejo essa como uma versão de excelência. Sendo feito da melhor forma diante das condições.
 ### Screenshots:
 ![Screenshot da tela de respostas](https://github.com/Pablo-Raphael/fast_trivia/blob/main/screenshots/Captura%20de%20tela%202023-08-22%20064202.png?raw=true)
-# .
+# -
 ![Screenshot da tela inicial](https://github.com/Pablo-Raphael/fast_trivia/blob/main/screenshots/Captura%20de%20tela%202023-08-22%20064446.png?raw=true)
-# .
+# -
 ![Screenshot gabarito](https://github.com/Pablo-Raphael/fast_trivia/blob/main/screenshots/Captura%20de%20tela%202023-08-22%20064502.png?raw=true)
-# .
+# -
 ![Screenshot questionário](https://github.com/Pablo-Raphael/fast_trivia/blob/main/screenshots/Captura%20de%20tela%202023-08-22%20064518.png?raw=true)
