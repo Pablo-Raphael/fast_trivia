@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 
+/// Indicador circular da porcentagem de acerto do usuário num questionário.
 class CircularQuizResult extends StatelessWidget {
   const CircularQuizResult({
     Key? key,

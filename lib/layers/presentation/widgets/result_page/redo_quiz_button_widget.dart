@@ -1,15 +1,14 @@
 import 'package:checkmob_quiz/layers/domain/entities/quiz_entity.dart';
-import 'package:checkmob_quiz/layers/presentation/controllers/history_controller.dart';
-import 'package:checkmob_quiz/layers/presentation/controllers/quiz_controller.dart';
+import 'package:checkmob_quiz/layers/presentation/controllers/quizzes_controller.dart';
 import 'package:checkmob_quiz/layers/presentation/pages/quiz_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 
+/// Botão que permite refazer questionário.
 class RedoQuizButtonWidget extends StatelessWidget {
   RedoQuizButtonWidget({Key? key, required this.quiz}) : super(key: key);
 
-  final QuizController _quizController = GetIt.I.get<QuizController>();
-  final HistoryController _historyController = GetIt.I.get<HistoryController>();
+  final QuizzesController _quizzesController = GetIt.I.get<QuizzesController>();
   final QuizEntity quiz;
 
   @override
@@ -23,17 +22,15 @@ class RedoQuizButtonWidget extends StatelessWidget {
       ),
       child: ElevatedButton(
         onPressed: () async {
-          _historyController.clear();
-          _quizController.clear();
+          await _quizzesController.deleteHistoryRegisterUsecase(quiz.quizId);
+          await _quizzesController.loadHistory();
+          _quizzesController.toogleQuizAnsweredStatus(quiz);
 
           Navigator.of(context).pushReplacement(
             MaterialPageRoute(
               builder: (context) => QuizPage(quiz: quiz),
             ),
           );
-
-          await _historyController.deleteHistoryRegisterUsecase(quiz.quizId);
-          await _historyController.loadHistory();
         },
         style: ElevatedButton.styleFrom(
           backgroundColor: Colors.deepOrange,

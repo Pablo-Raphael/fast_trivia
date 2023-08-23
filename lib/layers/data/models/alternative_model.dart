@@ -2,9 +2,9 @@ import 'package:checkmob_quiz/layers/domain/entities/alternative_entity.dart';
 
 class AlternativeModel extends AlternativeEntity {
   final int id;
-  final String titulo;
   final int questionId;
   final int quizId;
+  final String titulo;
 
   AlternativeModel({
     required this.id,

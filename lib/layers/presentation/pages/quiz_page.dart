@@ -1,6 +1,5 @@
 import 'package:checkmob_quiz/layers/domain/entities/quiz_entity.dart';
 import 'package:checkmob_quiz/layers/presentation/controllers/quiz_controller.dart';
-import 'package:checkmob_quiz/layers/presentation/pages/home_page.dart';
 import 'package:checkmob_quiz/layers/presentation/widgets/quiz_page/alternatives/alternatives_card_widget.dart';
 import 'package:checkmob_quiz/layers/presentation/widgets/quiz_page/questions/current_question_title_widget.dart';
 import 'package:checkmob_quiz/layers/presentation/widgets/quiz_page/questions/questions_indicator_widget.dart';
@@ -18,17 +17,26 @@ class QuizPage extends StatefulWidget {
 }
 
 class _QuizPageState extends State<QuizPage> {
-  final QuizController _quizController = GetIt.I.get<QuizController>();
-
   @override
   void initState() {
     super.initState();
-    _quizController.clear();
-
-    _quizController.changeCurrentQuestion(
-      quizId: widget.quiz.quizId,
-      questionId: 1,
+    // Cada sessão de respostas a um questionário deve ter um controlador único;
+    final quizController = QuizController(
+      saveCurrentQuizAnswersUsecase: GetIt.I.get(),
+      currentQuiz: widget.quiz,
     );
+
+    GetIt.I.registerSingleton<QuizController>(quizController);
+
+    // Ao abrir um questionário, traz o foco à primeira pergunta;
+    quizController.changeCurrentQuestion(questionId: 1);
+  }
+
+  @override
+  void dispose() {
+    // Se encerrar um questionário, encerra seu respectivo controlador também;
+    GetIt.I.unregister<QuizController>();
+    super.dispose();
   }
 
   @override
@@ -38,13 +46,7 @@ class _QuizPageState extends State<QuizPage> {
         backgroundColor: Colors.deepOrange,
         centerTitle: true,
         leading: IconButton(
-          onPressed: () {
-            Navigator.of(context).pushReplacement(
-              MaterialPageRoute(
-                builder: (context) => const HomePage(),
-              ),
-            );
-          },
+          onPressed: () => Navigator.pop(context),
           icon: const Icon(
             Icons.chevron_left,
             size: 35,
@@ -61,41 +63,33 @@ class _QuizPageState extends State<QuizPage> {
         ),
       ),
       //
-      body: WillPopScope(
-        onWillPop: () async {
-          Navigator.of(context).pushReplacement(
-            MaterialPageRoute(builder: (context) => const HomePage()),
-          );
-          return true;
-        },
-        child: Stack(
-          children: [
-            //
-            Container(
-              height: MediaQuery.of(context).size.height * 0.4,
-              decoration: const BoxDecoration(
-                color: Colors.deepOrange,
-                borderRadius: BorderRadius.only(
-                  bottomRight: Radius.circular(80),
-                  bottomLeft: Radius.circular(80),
-                ),
+      body: Stack(
+        children: [
+          //
+          Container(
+            height: MediaQuery.of(context).size.height * 0.4,
+            decoration: const BoxDecoration(
+              color: Colors.deepOrange,
+              borderRadius: BorderRadius.only(
+                bottomRight: Radius.circular(80),
+                bottomLeft: Radius.circular(80),
               ),
             ),
-            //
-            ListView(
-              children: [
-                //
-                QuestionsIndicatorWidget(quiz: widget.quiz),
-                //
-                CurrentQuestionTitleWidget(),
-                //
-                AlternativesCardWidget(),
-                //
-                SubmitAlternativeButtonWidget(quiz: widget.quiz),
-              ],
-            )
-          ],
-        ),
+          ),
+          //
+          ListView(
+            children: [
+              //
+              QuestionsIndicatorWidget(quiz: widget.quiz),
+              //
+              CurrentQuestionTitleWidget(),
+              //
+              AlternativesCardWidget(),
+              //
+              SubmitAlternativeButtonWidget(quiz: widget.quiz),
+            ],
+          )
+        ],
       ),
     );
   }

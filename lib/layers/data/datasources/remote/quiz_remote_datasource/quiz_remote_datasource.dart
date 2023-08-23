@@ -1,6 +1,6 @@
 import 'package:checkmob_quiz/layers/data/models/quiz_model.dart';
 
-abstract class QuizDataSource {
+abstract class QuizRemoteDataSource {
   /// Envia do servidor um questionário ao passar um ID em espicífico.
   Future<QuizModel> getQuiz(int quizId);
 

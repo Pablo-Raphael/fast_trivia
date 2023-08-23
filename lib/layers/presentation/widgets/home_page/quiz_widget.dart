@@ -1,35 +1,29 @@
 import 'package:checkmob_quiz/layers/domain/entities/quiz_entity.dart';
-import 'package:checkmob_quiz/layers/presentation/controllers/history_controller.dart';
-import 'package:checkmob_quiz/layers/presentation/controllers/quiz_controller.dart';
 import 'package:checkmob_quiz/layers/presentation/pages/quiz_page.dart';
 import 'package:checkmob_quiz/layers/presentation/pages/result_page.dart';
 import 'package:flutter/material.dart';
-import 'package:get_it/get_it.dart';
 
+/// Widget com as informações de um questionário disponível.
 class QuizWidget extends StatelessWidget {
-  QuizWidget({Key? key, required this.quiz}) : super(key: key);
+  const QuizWidget({Key? key, required this.quiz}) : super(key: key);
 
   final QuizEntity quiz;
-  final HistoryController _historyController = GetIt.I.get<HistoryController>();
-  final QuizController _quizController = GetIt.I.get<QuizController>();
 
   @override
   Widget build(BuildContext context) {
-    final isAlreadyAnswered = _historyController.isQuizAlreadyAnswered(
-      quiz.quizId,
-    );
-
     return GestureDetector(
       onTap: () {
-        if (isAlreadyAnswered) {
-          Navigator.of(context).pushReplacement(
+        // Ao clicar num questionário respondido, deve ser exibido o gabarito;
+        if (quiz.isAlreadyAnswered) {
+          Navigator.of(context).push(
             MaterialPageRoute(
               builder: (context) => ResultPage(quiz: quiz),
             ),
           );
-        } else {
-          _quizController.clear();
-          Navigator.of(context).pushReplacement(
+        }
+        // Ao clicar num questionário não respondido, ele será iniciado;
+        else {
+          Navigator.of(context).push(
             MaterialPageRoute(
               builder: (context) => QuizPage(quiz: quiz),
             ),
@@ -54,20 +48,14 @@ class QuizWidget extends StatelessWidget {
                 fontWeight: FontWeight.w500,
               ),
             ),
-            subtitle: Text(isAlreadyAnswered ? "Concluído" : "Incompleto"),
-            trailing: isAlreadyAnswered
+            subtitle: Text(quiz.isAlreadyAnswered ? "Concluído" : "Incompleto"),
+            trailing: quiz.isAlreadyAnswered
                 ? const CircleAvatar(
                     radius: 12,
                     backgroundColor: Colors.green,
-                    child: Icon(
-                      Icons.check,
-                      color: Colors.black,
-                      size: 15,
-                    ),
+                    child: Icon(Icons.check, color: Colors.black, size: 15),
                   )
-                : const Icon(
-                    Icons.chevron_right,
-                  ),
+                : const Icon(Icons.chevron_right),
           ),
         ),
       ),

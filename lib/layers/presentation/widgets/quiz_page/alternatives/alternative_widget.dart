@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:get_it/get_it.dart';
 
+/// Widget de cada alternativa disponível para uma pergunta.
 class AlternativeWidget extends StatelessWidget {
   AlternativeWidget({required this.alternative, Key? key}) : super(key: key);
 

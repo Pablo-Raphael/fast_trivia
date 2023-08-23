@@ -1,10 +1,10 @@
 import 'dart:convert';
 
-import 'package:checkmob_quiz/layers/data/datasources/local/user_history_datasource/history_datasource.dart';
+import 'package:checkmob_quiz/layers/data/datasources/local/user_history_datasource/quiz_local_datasource.dart';
 import 'package:checkmob_quiz/layers/domain/entities/alternative_entity.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-class HistoryDataSourceImp implements HistoryDataSource {
+class QuizLocalDataSourceImp implements QuizLocalDataSource {
   @override
   Future<List<AlternativeEntity>> getHistory() async {
     final prefs = await SharedPreferences.getInstance();
@@ -21,9 +21,9 @@ class HistoryDataSourceImp implements HistoryDataSource {
       for (Map<String, dynamic> answeredQuestion in answeredQuiz["questions"]) {
         history.add(
           AlternativeEntity(
-            alternativeId: answeredQuestion["alternative_id"],
-            questionId: answeredQuestion["question_id"],
             quizId: quizId,
+            questionId: answeredQuestion["question_id"],
+            alternativeId: answeredQuestion["alternative_id"],
             title: answeredQuestion["alternative_title"],
           ),
         );

@@ -1,6 +1,6 @@
 import 'package:checkmob_quiz/layers/domain/entities/alternative_entity.dart';
 
-abstract class HistoryDataSource {
+abstract class QuizLocalDataSource {
   /// Obtém todos os registros de questionários respondidos pelo usuário.
   Future<List<AlternativeEntity>> getHistory();
 

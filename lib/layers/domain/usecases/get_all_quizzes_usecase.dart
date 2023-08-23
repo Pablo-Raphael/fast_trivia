@@ -1,13 +1,13 @@
 import 'package:checkmob_quiz/layers/domain/entities/quiz_entity.dart';
-import 'package:checkmob_quiz/layers/domain/repositories/quiz_repository.dart';
+import 'package:checkmob_quiz/layers/domain/repositories/quizzes_repository.dart';
 
 /// retorna a lista de todos os questionários disponíveis no servidor.
 class GetAllQuizzesUsecase {
-  final QuizRepository _quizRepository;
+  final QuizzesRepository _quizzesRepository;
 
-  GetAllQuizzesUsecase(this._quizRepository);
+  GetAllQuizzesUsecase(this._quizzesRepository);
 
   Future<List<QuizEntity>> call() async {
-    return _quizRepository.getAllQuizzes();
+    return await _quizzesRepository.getAllQuizzes();
   }
 }

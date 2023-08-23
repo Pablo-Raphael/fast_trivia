@@ -1,6 +1,5 @@
 import 'package:checkmob_quiz/layers/domain/entities/quiz_entity.dart';
-import 'package:checkmob_quiz/layers/presentation/controllers/history_controller.dart';
-import 'package:checkmob_quiz/layers/presentation/controllers/quiz_controller.dart';
+import 'package:checkmob_quiz/layers/presentation/controllers/quizzes_controller.dart';
 import 'package:checkmob_quiz/layers/presentation/widgets/home_page/quiz_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
@@ -14,14 +13,17 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final QuizController _quizController = GetIt.I<QuizController>();
-  final HistoryController _historyController = GetIt.I.get<HistoryController>();
+  final QuizzesController _quizzesController = GetIt.I.get<QuizzesController>();
 
   @override
   void initState() {
     super.initState();
-    _historyController.loadHistory();
-    _quizController.loadAllQuizzes();
+    loadData();
+  }
+
+  Future<void> loadData() async {
+    await _quizzesController.loadHistory();
+    await _quizzesController.loadAllQuizzes();
   }
 
   @override
@@ -58,13 +60,12 @@ class _HomePageState extends State<HomePage> {
                   topLeft: Radius.circular(40),
                 ),
               ),
-              //padding: EdgeInsets.only(top: ),
               alignment: Alignment.center,
               height: MediaQuery.of(context).size.height * 0.85,
               child: Observer(
                 builder: (context) {
                   return ListView(
-                    children: _quizController.allQuizzes.map(
+                    children: _quizzesController.allQuizzes.map(
                       (QuizEntity quiz) {
                         return QuizWidget(quiz: quiz);
                       },

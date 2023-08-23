@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+/// Texto indicador do número de respostas corretas do usuário.
 class TotalScoresTextWidget extends StatelessWidget {
   const TotalScoresTextWidget({
     Key? key,

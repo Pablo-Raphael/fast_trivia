@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:get_it/get_it.dart';
 
+/// Card com todas as alternativas disponíveis para uma pergunta.
 class AlternativesCardWidget extends StatelessWidget {
   AlternativesCardWidget({Key? key}) : super(key: key);
 
@@ -27,17 +28,19 @@ class AlternativesCardWidget extends StatelessWidget {
             if (question == null) {
               return const SizedBox.shrink();
             } else {
-              return Observer(builder: (context) {
-                return Column(
-                  children: _quizController.currentQuestion!.alternatives.map(
-                    (alternative) {
-                      return AlternativeWidget(
-                        alternative: alternative,
-                      );
-                    },
-                  ).toList(),
-                );
-              });
+              return Observer(
+                builder: (context) {
+                  return Column(
+                    children: _quizController.currentQuestion!.alternatives.map(
+                      (alternative) {
+                        return AlternativeWidget(
+                          alternative: alternative,
+                        );
+                      },
+                    ).toList(),
+                  );
+                },
+              );
             }
           },
         ),

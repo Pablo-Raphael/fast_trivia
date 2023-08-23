@@ -7,7 +7,7 @@ void main() {
 
   runApp(
     MaterialApp(
-      title: 'CheckMob Quiz',
+      title: 'Fast Trivia',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primaryColor: Colors.deepOrange,

@@ -2,6 +2,7 @@ import 'package:checkmob_quiz/layers/domain/entities/quiz_entity.dart';
 import 'package:checkmob_quiz/layers/presentation/widgets/quiz_page/questions/current_question_number_widget.dart';
 import 'package:flutter/material.dart';
 
+/// Lista horizontal que mostra o número de todas as questões do questionário.
 class QuestionsIndicatorWidget extends StatelessWidget {
   const QuestionsIndicatorWidget({
     Key? key,

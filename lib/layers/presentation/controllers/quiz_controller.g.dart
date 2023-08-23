@@ -49,51 +49,40 @@ mixin _$QuizController on _QuizController, Store {
     });
   }
 
-  late final _$allQuizzesAtom =
-      Atom(name: '_QuizController.allQuizzes', context: context);
+  late final _$quizAnswersAtom =
+      Atom(name: '_QuizController.quizAnswers', context: context);
 
   @override
-  List<QuizEntity> get allQuizzes {
-    _$allQuizzesAtom.reportRead();
-    return super.allQuizzes;
+  List<AlternativeEntity> get quizAnswers {
+    _$quizAnswersAtom.reportRead();
+    return super.quizAnswers;
   }
 
   @override
-  set allQuizzes(List<QuizEntity> value) {
-    _$allQuizzesAtom.reportWrite(value, super.allQuizzes, () {
-      super.allQuizzes = value;
+  set quizAnswers(List<AlternativeEntity> value) {
+    _$quizAnswersAtom.reportWrite(value, super.quizAnswers, () {
+      super.quizAnswers = value;
     });
   }
 
-  late final _$loadAllQuizzesAsyncAction =
-      AsyncAction('_QuizController.loadAllQuizzes', context: context);
+  late final _$saveCurrentQuizAnswersAsyncAction =
+      AsyncAction('_QuizController.saveCurrentQuizAnswers', context: context);
 
   @override
-  Future<void> loadAllQuizzes() {
-    return _$loadAllQuizzesAsyncAction.run(() => super.loadAllQuizzes());
+  Future<void> saveCurrentQuizAnswers() {
+    return _$saveCurrentQuizAnswersAsyncAction
+        .run(() => super.saveCurrentQuizAnswers());
   }
 
   late final _$_QuizControllerActionController =
       ActionController(name: '_QuizController', context: context);
 
   @override
-  void clear() {
-    final _$actionInfo = _$_QuizControllerActionController.startAction(
-        name: '_QuizController.clear');
-    try {
-      return super.clear();
-    } finally {
-      _$_QuizControllerActionController.endAction(_$actionInfo);
-    }
-  }
-
-  @override
-  void changeCurrentQuestion({required int quizId, required int questionId}) {
+  void changeCurrentQuestion({required int questionId}) {
     final _$actionInfo = _$_QuizControllerActionController.startAction(
         name: '_QuizController.changeCurrentQuestion');
     try {
-      return super
-          .changeCurrentQuestion(quizId: quizId, questionId: questionId);
+      return super.changeCurrentQuestion(questionId: questionId);
     } finally {
       _$_QuizControllerActionController.endAction(_$actionInfo);
     }
@@ -111,11 +100,22 @@ mixin _$QuizController on _QuizController, Store {
   }
 
   @override
+  void submitAlternative() {
+    final _$actionInfo = _$_QuizControllerActionController.startAction(
+        name: '_QuizController.submitAlternative');
+    try {
+      return super.submitAlternative();
+    } finally {
+      _$_QuizControllerActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   String toString() {
     return '''
 currentQuestion: ${currentQuestion},
 currentAlternative: ${currentAlternative},
-allQuizzes: ${allQuizzes},
+quizAnswers: ${quizAnswers},
 isLastQuestion: ${isLastQuestion}
     ''';
   }

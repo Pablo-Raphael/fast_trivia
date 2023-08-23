@@ -1,11 +1,10 @@
 import 'package:checkmob_quiz/layers/domain/entities/alternative_entity.dart';
 import 'package:checkmob_quiz/layers/domain/entities/question_entity.dart';
-import 'package:checkmob_quiz/layers/presentation/controllers/quiz_controller.dart';
 import 'package:flutter/material.dart';
-import 'package:get_it/get_it.dart';
 
+/// Card com o gabarito de uma questão.
 class CorrectionCardWidget extends StatelessWidget {
-  CorrectionCardWidget({
+  const CorrectionCardWidget({
     Key? key,
     required this.question,
     required this.userAnswer,
@@ -13,11 +12,12 @@ class CorrectionCardWidget extends StatelessWidget {
 
   final AlternativeEntity userAnswer;
   final QuestionEntity question;
-  final QuizController _quizController = GetIt.I.get<QuizController>();
 
   @override
   Widget build(BuildContext context) {
-    final correctAlternative = _quizController.getCorrectAnswer(question);
+    final correctAlternative = question.alternatives.firstWhere((alternative) {
+      return alternative.alternativeId == question.correctAnswer;
+    });
     final isUserAnswerCorrect = correctAlternative.alternativeId == userAnswer.alternativeId;
 
     return Card(
@@ -40,11 +40,12 @@ class CorrectionCardWidget extends StatelessWidget {
               style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 15),
-            Text("Sua resposta: ${userAnswer.title}"),
-            Text("Resposta correta: ${correctAlternative.title}"),
+            Text("• Sua resposta: ${userAnswer.title}"),
+            Text("• Resposta correta: ${correctAlternative.title}"),
+            SizedBox(height: MediaQuery.of(context).size.height * 0.01),
             Row(
               children: [
-                const Text("Resultado: "),
+                const Text("• Resultado: "),
                 Text(
                   isUserAnswerCorrect ? "Correto" : "Incorreto",
                   style: TextStyle(

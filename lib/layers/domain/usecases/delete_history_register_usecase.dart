@@ -1,12 +1,12 @@
-import 'package:checkmob_quiz/layers/domain/repositories/history_repository.dart';
+import 'package:checkmob_quiz/layers/domain/repositories/quizzes_repository.dart';
 
 /// Apaga do banco de dados um registro de resposta em específico.
 class DeleteHistoryRegisterUsecase {
-  final HistoryRepository _historyRepository;
+  final QuizzesRepository _quizzesRepository;
 
-  DeleteHistoryRegisterUsecase(this._historyRepository);
+  DeleteHistoryRegisterUsecase(this._quizzesRepository);
 
   Future<bool> call(int quizId) async {
-    return await _historyRepository.deleteHistoryRegister(quizId);
+    return await _quizzesRepository.deleteHistoryRegister(quizId);
   }
 }

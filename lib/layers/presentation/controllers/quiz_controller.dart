@@ -1,8 +1,7 @@
 import 'package:checkmob_quiz/layers/domain/entities/alternative_entity.dart';
 import 'package:checkmob_quiz/layers/domain/entities/question_entity.dart';
 import 'package:checkmob_quiz/layers/domain/entities/quiz_entity.dart';
-import 'package:checkmob_quiz/layers/domain/usecases/get_all_quizzes_usecase.dart';
-import 'package:checkmob_quiz/layers/presentation/controllers/history_controller.dart';
+import 'package:checkmob_quiz/layers/domain/usecases/save_current_quiz_answers_usecase.dart';
 import 'package:mobx/mobx.dart';
 
 part 'quiz_controller.g.dart';
@@ -10,74 +9,88 @@ part 'quiz_controller.g.dart';
 class QuizController = _QuizController with _$QuizController;
 
 abstract class _QuizController with Store {
-  final GetAllQuizzesUsecase _getAllQuizzesUsecase;
-  final HistoryController _historyController;
+  late final SaveCurrentQuizAnswersUsecase _saveCurrentQuizAnswersUsecase;
+  final QuizEntity currentQuiz;
 
-  _QuizController(
-    this._getAllQuizzesUsecase,
-    this._historyController,
-  );
+  _QuizController({
+    required SaveCurrentQuizAnswersUsecase saveCurrentQuizAnswersUsecase,
+    required this.currentQuiz,
+  }) {
+    _saveCurrentQuizAnswersUsecase = saveCurrentQuizAnswersUsecase;
+  }
 
+  /// Pergunta que deve estar em foco.
   @observable
   QuestionEntity? currentQuestion;
 
+  /// A alternativa escolhida para a pergunta em foco.
   @observable
   AlternativeEntity? currentAlternative;
 
+  /// Alternativas que o usuário está selecionando para o questionário atual.
   @observable
-  List<QuizEntity> allQuizzes = ObservableList();
+  List<AlternativeEntity> quizAnswers = ObservableList<AlternativeEntity>();
 
-  /// Limpa o estado das perguntas e das alternativas;
+  /// Altera a pergunta atual para a indicada via argumento.
   @action
-  void clear() {
-    currentQuestion = null;
-    currentAlternative = null;
-  }
-
-  /// Altera a pergunta atual para a indicada via argumento;
-  @action
-  void changeCurrentQuestion({required int quizId, required int questionId}) {
-    final currentQuiz = getQuizById(quizId: quizId);
-
-    currentQuestion = currentQuiz.questions.where((question) {
+  void changeCurrentQuestion({required int questionId}) {
+    currentQuestion = currentQuiz.questions.firstWhere((question) {
       return question.questionId == questionId;
-    }).first;
+    });
 
-    currentAlternative = _historyController.getCurrentUserAnswer(questionId);
+    currentAlternative = getCurrentUserAnswer(questionId);
   }
 
-  /// Muda o estado de uma alternativa para "selecionado";
+  /// Muda o estado de uma alternativa para "selecionado".
   @action
   void selectAlternative(AlternativeEntity alternative) {
     currentAlternative = alternative;
   }
 
-  /// Obtém todos os questionários disponíveis na API;.
+  /// Guarda a alternativa escolhida pelo usuário.
   @action
-  Future<void> loadAllQuizzes() async {
-    final quizzes = await _getAllQuizzesUsecase();
-    allQuizzes.clear();
-    allQuizzes.addAll(quizzes);
+  void submitAlternative() {
+    // Obtém a alternativa antes ecolhida, caso exista;
+    final alternativeSubmited = quizAnswers.where((answer) {
+      return answer.questionId == currentAlternative?.questionId;
+    }).firstOrNull;
+
+    // Remove a reposta anterior caso exista;
+    if (alternativeSubmited != null) {
+      quizAnswers.remove(alternativeSubmited);
+    }
+
+    if (currentAlternative != null) {
+      quizAnswers.add(currentAlternative!);
+    }
+  }
+
+  /// Salva localmente todas as alternativas escolhidas pelo usuário.
+  @action
+  Future<void> saveCurrentQuizAnswers() async {
+    await _saveCurrentQuizAnswersUsecase(quizAnswers);
+  }
+
+  /// Status que avisa se é a última pergunta do questionário.
+  @computed
+  bool get isLastQuestion {
+    return currentQuestion == currentQuiz.questions.lastOrNull;
+  }
+
+  /// Retorna qual opção o usuários escolheu atualmente para uma pergunta.
+  AlternativeEntity? getCurrentUserAnswer(int questionId) {
+    return quizAnswers.where((answer) {
+      return answer.questionId == questionId;
+    }).firstOrNull;
   }
 
   /// Retorna o objeto de uma pergunta.
-  QuestionEntity getQuestionById({required int questionId, required int quizId}) {
-    final quiz = allQuizzes.where((quiz) {
-      return quiz.quizId == quizId;
-    }).first;
-
-    final question = quiz.questions.where((question) {
+  QuestionEntity getQuestionById({required int questionId}) {
+    final question = currentQuiz.questions.where((question) {
       return question.questionId == questionId;
     }).first;
 
     return question;
-  }
-
-  /// Retorna o objeto de um questionário.
-  QuizEntity getQuizById({required int quizId}) {
-    return allQuizzes.where((quiz) {
-      return quiz.quizId == quizId;
-    }).first;
   }
 
   /// Obtém o gabarito da pergunta.
@@ -85,35 +98,5 @@ abstract class _QuizController with Store {
     return question.alternatives.where((alternative) {
       return alternative.alternativeId == question.correctAnswer;
     }).first;
-  }
-
-  /// Retorna o número de alternativas passadas por argumento que estão corretas.
-  int numberOfCorrectAnswers(List<AlternativeEntity> answers) {
-    int correctAnswers = 0;
-
-    for (AlternativeEntity answer in answers) {
-      // Obtém o gabarito de cada questão;
-      final correctAnswer = getCorrectAnswer(
-        getQuestionById(
-          questionId: answer.questionId,
-          quizId: answer.quizId,
-        ),
-      );
-
-      // Reposta correta caso a alternativa escolhida seja a mesma do gabarito;
-      if (correctAnswer.alternativeId == answer.alternativeId) {
-        correctAnswers++;
-      }
-    }
-
-    return correctAnswers;
-  }
-
-  /// Status que avisa se é a última pergunta do questionário.
-  @computed
-  bool get isLastQuestion {
-    if(currentQuestion == null) return false;
-    final quiz = getQuizById(quizId: currentQuestion!.quizId);
-    return currentQuestion == quiz.questions.lastOrNull;
   }
 }

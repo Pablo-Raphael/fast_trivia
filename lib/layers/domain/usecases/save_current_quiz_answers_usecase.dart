@@ -1,14 +1,14 @@
 import 'package:checkmob_quiz/layers/domain/entities/alternative_entity.dart';
-import 'package:checkmob_quiz/layers/domain/repositories/history_repository.dart';
+import 'package:checkmob_quiz/layers/domain/repositories/quizzes_repository.dart';
 
 /// Ao finalizar um questionário esse UseCase pode ser chamado para armazenar
 /// as respostas num banco de dados local.
 class SaveCurrentQuizAnswersUsecase {
-  final HistoryRepository _historyRepository;
+  final QuizzesRepository _quizzesRepository;
 
-  SaveCurrentQuizAnswersUsecase(this._historyRepository);
+  SaveCurrentQuizAnswersUsecase(this._quizzesRepository);
 
   Future<bool> call(List<AlternativeEntity> answers) async {
-    return await _historyRepository.saveCurrentQuizAnswers(answers);
+    return await _quizzesRepository.saveCurrentQuizAnswers(answers);
   }
 }

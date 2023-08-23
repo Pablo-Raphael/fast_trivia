@@ -1,13 +1,12 @@
-import 'package:checkmob_quiz/layers/domain/entities/alternative_entity.dart';
-import 'package:checkmob_quiz/layers/domain/repositories/history_repository.dart';
+import 'package:checkmob_quiz/layers/domain/repositories/quizzes_repository.dart';
 
 /// Carrega o histórico de respostas do usuário.
 class LoadHistoryUsecase {
-  final HistoryRepository _historyRepository;
+  final QuizzesRepository _quizzesRepository;
 
-  LoadHistoryUsecase(this._historyRepository);
+  LoadHistoryUsecase(this._quizzesRepository);
 
-  Future<List<AlternativeEntity>> call() async {
-    return await _historyRepository.getHistory();
+  Future<bool> call() async {
+    return await _quizzesRepository.loadHistory();
   }
 }

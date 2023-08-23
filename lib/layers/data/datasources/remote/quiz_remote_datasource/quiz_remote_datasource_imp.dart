@@ -1,9 +1,9 @@
 import 'dart:convert';
-import 'package:checkmob_quiz/layers/data/datasources/remote/quiz_datasource/quiz_datasource.dart';
+import 'package:checkmob_quiz/layers/data/datasources/remote/quiz_remote_datasource/quiz_remote_datasource.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:checkmob_quiz/layers/data/models/quiz_model.dart';
 
-class QuizDataSourceImp implements QuizDataSource {
+class QuizRemoteDataSourceImp implements QuizRemoteDataSource {
   @override
   Future<QuizModel> getQuiz(int quizId) async {
     // Simulando a requisição HTTP com um arquivo JSON mockado

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:get_it/get_it.dart';
 
+/// Widget que indica o título da pergunta atual.
 class CurrentQuestionTitleWidget extends StatelessWidget {
   CurrentQuestionTitleWidget({Key? key}) : super(key: key);
 
@@ -16,19 +17,17 @@ class CurrentQuestionTitleWidget extends StatelessWidget {
         horizontal: MediaQuery.of(context).size.width * 0.02,
       ),
       child: Center(
-        child: Observer(
-          builder: (context) {
-            return Text(
-              _quizController.currentQuestion?.question ?? "Carregando Questão",
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                color: Colors.white,
-                fontWeight: FontWeight.bold,
-                fontSize: MediaQuery.of(context).size.width * 0.05,
-              ),
-            );
-          }
-        ),
+        child: Observer(builder: (context) {
+          return Text(
+            _quizController.currentQuestion?.question ?? "Carregando Questão",
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
+              fontSize: MediaQuery.of(context).size.width * 0.05,
+            ),
+          );
+        }),
       ),
     );
   }

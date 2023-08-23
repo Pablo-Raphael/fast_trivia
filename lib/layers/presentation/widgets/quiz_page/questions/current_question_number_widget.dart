@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:get_it/get_it.dart';
 
+/// Widget que indica o número da pergunta atual.
 class CurrentQuestionNumberWidget extends StatelessWidget {
   CurrentQuestionNumberWidget({
     required this.question,
@@ -20,7 +21,7 @@ class CurrentQuestionNumberWidget extends StatelessWidget {
         return Padding(
           padding: const EdgeInsets.symmetric(horizontal: 10),
           child: GestureDetector(
-            onTap: () => _quizController.changeCurrentQuestion(quizId: question.quizId,questionId: question.questionId),
+            onTap: () => _quizController.changeCurrentQuestion(questionId: question.questionId),
             child: CircleAvatar(
               radius: MediaQuery.of(context).size.width * 0.03,
               backgroundColor: _quizController.currentQuestion?.questionId == question.questionId
